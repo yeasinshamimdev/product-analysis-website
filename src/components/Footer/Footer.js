@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { } from '@fortawesome/free-solid-svg-icons'
 
 const Footer = () => {
     return (
@@ -9,12 +7,12 @@ const Footer = () => {
             <div className='pt-10 text-center bg-slate-900 md:grid md:grid-cols-4'>
                 <div>
                 </div>
-                <div className='flex flex-col text-white text-xl text-left'>
-                    <Link className='mt-2 w-1/2' to="/home">Home</Link>
-                    <Link className='mt-2 w-1/2' to="/review">Review</Link>
-                    <Link className='mt-2 w-1/2' to="/dashboard">Dashboard</Link>
-                    <Link className='mt-2' to="/blogs">Blogs</Link>
-                    <Link className='mt-2 w-1/2' to="/about">About</Link>
+                <div className='flex flex-col text-white text-xl text-center md:text-left'>
+                    <Link className='mt-2 md:w-1/2 mb-1' to="/home">Home</Link>
+                    <Link className='mt-2 md:w-1/2 mb-1' to="/review">Review</Link>
+                    <Link className='mt-2 md:w-1/2 mb-1' to="/dashboard">Dashboard</Link>
+                    <Link className='mt-2 md:w-1/2 mb-1' to="/blogs">Blogs</Link>
+                    <Link className='mt-2 md:w-1/2 mb-1' to="/about">About</Link>
                 </div>
                 <div className='flex items-center justify-center'>
                     <input className='h-8 px-3 rounded-sm' type="text" placeholder='Enter your email' />
