@@ -4,7 +4,7 @@ import useChartData from '../../hooks/useChartData';
 
 const Dashboard = () => {
     const [chartData, setChartData] = useChartData([]);
-    console.log(chartData);
+
     return (
         <div className='mt-4 md:flex flex-wrap justify-around'>
             <div>
