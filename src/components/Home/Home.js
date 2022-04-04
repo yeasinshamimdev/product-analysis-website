@@ -32,6 +32,8 @@ const Home = () => {
                         threeReview.map(review => <ReviewCard key={review.id}
                             review={review} />)
                     }
+                </div>
+                <div className='flex justify-center items-center'>
                     {
                         reviews.length === 0 && <Spinner />
                     }
