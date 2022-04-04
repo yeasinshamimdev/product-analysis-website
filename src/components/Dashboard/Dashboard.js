@@ -1,13 +1,14 @@
 import React from 'react';
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Pie, PieChart, Tooltip, XAxis, YAxis } from 'recharts';
 import useChartData from '../../hooks/useChartData';
 
 const Dashboard = () => {
     const [chartData, setChartData] = useChartData([]);
     console.log(chartData);
     return (
-        <div className='mt-4 md:flex flex-wrap justify-between'>
+        <div className='mt-4 md:flex flex-wrap justify-around'>
             <div>
+                <h1 className='text-center text-indigo-400 font-bold text-xl'>Month wise sell</h1>
                 <LineChart
                     width={500}
                     height={350}
@@ -29,7 +30,7 @@ const Dashboard = () => {
             </div>
 
             <div>
-
+                <h1 className='text-center text-indigo-400 font-bold text-xl'>Investment VS Revenue</h1>
                 <AreaChart
                     width={500}
                     height={350}
@@ -45,8 +46,8 @@ const Dashboard = () => {
                     <XAxis dataKey="month" />
                     <YAxis />
                     <Tooltip />
-                    <Area type="monotone" dataKey="investment" stackId="1" stroke="#8884d8" fill="#8884d8" />
-                    <Area type="monotone" dataKey="revenue" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+                    <Area type="monotone" dataKey="revenue" stackId="1" stroke="#8884d8" fill="#8884d8" />
+                    <Area type="monotone" dataKey="investment" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
                     <Area type="monotone" dataKey="sell" stackId="1" stroke="#ffc658" fill="#ffc658" />
                 </AreaChart>
             </div>
@@ -72,8 +73,22 @@ const Dashboard = () => {
                     <Bar dataKey="revenue" stackId="a" fill="#82ca9d" />
                 </BarChart>
             </div>
-            <div>
-                <h1 className='text-center text-indigo-400 font-bold text-xl'>Investment VS Revenue</h1>
+            <div className='mt-4'>
+                <h1 className='text-start text-indigo-400 font-bold text-xl'>Investment VS Revenue</h1>
+                <PieChart width={300} height={300}>
+                    <Pie
+                        dataKey="investment"
+                        isAnimationActive={false}
+                        data={chartData}
+                        cx="50%"
+                        cy="50%"
+                        outerRadius={80}
+                        fill="#8884d8"
+                        label
+                    />
+                    <Pie dataKey="month" data={chartData} cx={500} cy={200} innerRadius={40} outerRadius={80} fill="#82ca9d" />
+                    <Tooltip />
+                </PieChart>
             </div>
         </div>
     );
